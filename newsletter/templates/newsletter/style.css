@@ -113,6 +113,14 @@ button:hover{
     background-color: #2c9ed3;
 }
 
+
+.subsuccess{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 40px;
+}
+
 /* footer */
 
 footer{
