@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Articles</title>
+    <link rel="stylesheet" href="{% static 'newsletter/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Admin Articles</h1>
+    </header>
+    <main>
+        <h2>Pending Articles</h2>
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.content }}</p>
+                    <small>{{ article.created_at }}</small>
+                    {% if not article.is_approved %}
+                        <a href="{% url 'approve_article' article.id %}">Approve</a>
+                    {% else %}
+                        <span>Approved</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
