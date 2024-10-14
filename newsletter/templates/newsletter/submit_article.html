@@ -1,25 +1,42 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Article</title>
-    <link rel="stylesheet" href="{% static 'newsletter/styles.css' %}">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <h1>Submit an Article</h1>
+        <div class="amc">
+            <p>AMC Engineering College</p>
+        </div>
+        <nav>
+
+            <li><a href="home.html">Home</a></li>
+
+            <li><a href="submit_article.html">Submit News</a></li>
+
+        </nav>
     </header>
-    <main>
-        <form method="POST">
-            {% csrf_token %}
-            <label for="title">Title:</label>
-            <input type="text" name="title" required>
-            <label for="content">Content:</label>
-            <textarea name="content" required></textarea>
-            <button type="submit">Submit</button>
+
+    
+
+    <div class="submitnews">
+        <form id="newsubmit" method="post">
+            <h2 class="title">Submit an Article</h2>
+            <label for="title">Article Title : </label>
+            <input type="text" name="title" required><br>
+            <label for="content">Content : </label>
+            <textarea name="content" required></textarea><br>
+            <button type="submit">Submit</button><br>
         </form>
-    </main>
+    </div>
+    <footer>
+        <p>&copy Copyright 2024 . AMC Engineering College | Made By Bharath , Matharishwa & Bichitra |</p>
+    </footer>
 </body>
+
 </html>
