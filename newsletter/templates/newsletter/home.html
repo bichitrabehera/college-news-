@@ -1,24 +1,29 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Newsletter</title>
-    <link rel="stylesheet" href="{% static 'newsletter/styles.css' %}">
+    <title>Newsletter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <h1>College Newsletter</h1>
+        <div class="amc">
+            <p>AMC Engineering College</p>
+        </div>
+        <nav>
+            
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+
+        </nav>
     </header>
-    <main>
-        {% for article in articles %}
-            <article>
-                <h2>{{ article.title }}</h2>
-                <p>{{ article.content }}</p>
-                <small>{{ article.created_at }}</small>
-            </article>
-        {% endfor %}
-    </main>
+    
 </body>
+
 </html>
