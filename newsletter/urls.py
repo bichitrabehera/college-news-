@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import submit_article, home, approve_article, admin_article_list
+from .views import submit_article, home, approve_article, admin_article_list, render_static_html
 
 urlpatterns = [
     path('', home, name='home'),

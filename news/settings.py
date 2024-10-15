@@ -26,6 +26,10 @@ SECRET_KEY = 'django-insecure-(nd-#t9r2a)11$5vg=7o0y96l_4i3xmvp$5$zfjj_oj4s_6=g&
 DEBUG = True
 
 ALLOWED_HOSTS = []
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'newsletter/static',  
+]
 
 
 # Application definition

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Article</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">  <!-- Corrected static file path -->
 </head>
 
 <body>
@@ -14,28 +15,26 @@
             <p>AMC Engineering College</p>
         </div>
         <nav>
-
-            <li><a href="home.html">Home</a></li>
-
-            <li><a href="submit_article.html">Submit News</a></li>
-
+            <ul> <!-- Added unordered list for navigation -->
+                <li><a href="{% url 'home' %}">Home</a></li>  <!-- Use URL tag for routing -->
+            </ul>
         </nav>
     </header>
 
-    
-
     <div class="submitnews">
-        <form id="newsubmit" method="post">
+        <form id="newsubmit" method="post" action="{% url 'submit_article' %}">  <!-- Set form action -->
+            {% csrf_token %}  <!-- Include CSRF token -->
             <h2 class="title">Submit an Article</h2>
-            <label for="title">Article Title : </label>
+            <label for="title">Article Title:</label>
             <input type="text" name="title" required><br>
-            <label for="content">Content : </label>
+            <label for="content">Content:</label>
             <textarea name="content" required></textarea><br>
             <button type="submit">Submit</button><br>
         </form>
     </div>
+
     <footer>
-        <p>&copy Copyright 2024 . AMC Engineering College | Made By Bharath , Matharishwa & Bichitra |</p>
+        <p>&copy; Copyright 2024. AMC Engineering College | Made By Bharath, Matharishwa & Bichitra</p>
     </footer>
 </body>
 
