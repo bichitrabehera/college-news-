@@ -22,6 +22,7 @@
     </header>
 
     <div class="submitnews">
+<<<<<<< HEAD
         <form id="newsubmit" method="post" action="{% url 'submit_article' %}">  <!-- Set form action -->
             {% csrf_token %}  <!-- Include CSRF token -->
             <h2 class="title">Submit an Article</h2>
@@ -29,6 +30,14 @@
             <input type="text" name="title" required><br>
             <label for="content">Content:</label>
             <textarea name="content" required></textarea><br>
+=======
+        <form id="newsubmit" action="/post" method="post">
+            <h2 class="title">Submit an Article</h2>
+            <label for="title" >Article Title : </label>
+            <input type="text" name="title" id="title" required><br>
+            <label for="content" >Content : </label>
+            <textarea name="content" id="content" required></textarea><br>
+>>>>>>> origin/main
             <button type="submit">Submit</button><br>
         </form>
     </div>
