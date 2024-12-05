@@ -5,6 +5,7 @@ from .forms import ArticleForm
 def home(request):
     articles = Article.objects.filter(is_approved=True)  # Only show approved articles
     return render(request, 'newsletter/home.html', {'articles': articles})
+
 def submit_article(request):
     if request.method == 'POST':
         form = ArticleForm(request.POST)
@@ -16,6 +17,7 @@ def submit_article(request):
     else:
         form = ArticleForm()
     return render(request, 'newsletter/submit_article.html', {'form': form})
+
 def render_static_html(request):
     return render(request, 'newsletter/submit_article.html') 
 
@@ -28,3 +30,7 @@ def approve_article(request, article_id):
 def admin_article_list(request):
     articles = Article.objects.filter(is_approved=False)  # List unapproved articles
     return render(request, 'newsletter/admin_article_list.html', {'articles': articles})
+
+def article_detail(request, article_id):
+    article = get_object_or_404(Article, id=article_id)  # Retrieve the article by ID
+    return render(request, 'newsletter/article_detail.html', {'article': article})  # Render the article detail template

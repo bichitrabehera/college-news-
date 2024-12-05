@@ -26,6 +26,7 @@
             <div class="hero-content">
                 <h2 class="hero-title">Welcome to AMC News Portal</h2>
                 <p class="hero-subtitle">Stay updated with the latest news and events from our campus</p>
+                <a href="submit" class="cta-button">Submit Your News</a> 
             </div>
         </section>
 
@@ -45,7 +46,7 @@
                             <span class="news-date">{{ article.created_at|date:"F d, Y" }}</span>
                             <span class="news-category">{{ article.category }}</span>
                         </div>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="{% url 'article_detail' article.id %}" class="read-more">Read More</a> <!-- Updated Read More link -->
                     </div>
                 </article>
                 {% endfor %}
@@ -57,6 +58,11 @@
         <div class="footer-content">
             <p>&copy; Copyright 2024 . AMC Engineering College</p>
             <p class="footer-credits">Made By Bharath, Matharishwa & Bichitra</p>
+            <div class="social-media">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div> 
         </div>
     </footer>
 </body>
