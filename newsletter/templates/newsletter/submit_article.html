@@ -1,50 +1,64 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Article</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">  <!-- Corrected static file path -->
+    <title>Submit Article - AMC News</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header>
+    <header class="header">
         <div class="amc">
-            <p>AMC Engineering College</p>
+            <h1>AMC Engineering College</h1>
         </div>
-        <nav>
-            <ul> <!-- Added unordered list for navigation -->
-                <li><a href="{% url 'home' %}">Home</a></li>  <!-- Use URL tag for routing -->
-            </ul>
+        <nav class="nav-container">
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="#" class="nav-link active">Submit News</a>
+            </div>
         </nav>
     </header>
 
-    <div class="submitnews">
-<<<<<<< HEAD
-        <form id="newsubmit" method="post" action="{% url 'submit_article' %}">  <!-- Set form action -->
-            {% csrf_token %}  <!-- Include CSRF token -->
-            <h2 class="title">Submit an Article</h2>
-            <label for="title">Article Title:</label>
-            <input type="text" name="title" required><br>
-            <label for="content">Content:</label>
-            <textarea name="content" required></textarea><br>
-=======
-        <form id="newsubmit" action="/post" method="post">
-            <h2 class="title">Submit an Article</h2>
-            <label for="title" >Article Title : </label>
-            <input type="text" name="title" id="title" required><br>
-            <label for="content" >Content : </label>
-            <textarea name="content" id="content" required></textarea><br>
->>>>>>> origin/main
-            <button type="submit">Submit</button><br>
-        </form>
-    </div>
+    <main>
+        <div class="submitnews">
+            <form id="newsubmit" method="post" action="{% url 'submit_article' %}">
+                {% csrf_token %}
+                <h2 class="title">Submit an Article</h2>
+                
+                <div class="form-group">
+                    <label for="title">Article Title</label>
+                    <input 
+                        type="text" 
+                        name="title" 
+                        id="title" 
+                        required 
+                        placeholder="Enter article title"
+                    >
+                </div>
 
-    <footer>
-        <p>&copy; Copyright 2024. AMC Engineering College | Made By Bharath, Matharishwa & Bichitra</p>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea 
+                        name="content" 
+                        id="content" 
+                        required 
+                        rows="8"
+                        placeholder="Write your article content here..."
+                    ></textarea>
+                </div>
+
+                <button type="submit">Submit Article</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; Copyright 2024 . AMC Engineering College</p>
+            <p class="footer-credits">Made By Bharath, Matharishwa & Bichitra</p>
+        </div>
     </footer>
 </body>
-
 </html>
