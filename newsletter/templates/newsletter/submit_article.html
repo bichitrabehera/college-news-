@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Article - AMC News</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="amc">
+            <h1>AMC Engineering College</h1>
+        </div>
+        <nav class="nav-container">
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="#" class="nav-link active">Submit News</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="submitnews">
+            <form id="newsubmit" method="post" action="{% url 'submit_article' %}">
+                {% csrf_token %}
+                <h2 class="title">Submit an Article</h2>
+                
+                <div class="form-group">
+                    <label for="title">Article Title</label>
+                    <input 
+                        type="text" 
+                        name="title" 
+                        id="title" 
+                        required 
+                        placeholder="Enter article title"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" required>
+                        <option value="">Select a category</option>
+                        {% for category in form.category.field.queryset %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea 
+                        name="content" 
+                        id="content" 
+                        required 
+                        rows="8"
+                        placeholder="Write your article content here..."
+                    ></textarea>
+                </div>
+
+                <p class="info-text">Note: Your article will be reviewed by an admin before being published.</p>
+
+                <button type="submit">Submit Article</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; Copyright 2024 . AMC Engineering College</p>
+            <p class="footer-credits">Made By Bharath, Matharishwa & Bichitra</p>
+        </div>
+    </footer>
+</body>
+</html>

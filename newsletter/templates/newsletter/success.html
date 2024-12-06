@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - AMC News</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="amc">
+            <h1>AMC Engineering College</h1>
+        </div>
+        <nav class="nav-container">
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="{% url 'submit_article' %}" class="nav-link">Submit News</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="success-message">
+            <div class="message-container">
+                <h2>Thank You!</h2>
+                <p>{{ message }}</p>
+                <div class="action-buttons">
+                    <a href="{% url 'home' %}" class="btn">Return to Home</a>
+                    <a href="{% url 'submit_article' %}" class="btn">Submit Another Article</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; Copyright 2024 . AMC Engineering College</p>
+            <p class="footer-credits">Made By Bharath, Matharishwa & Bichitra</p>
+        </div>
+    </footer>
+</body>
+</html>
