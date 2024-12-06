@@ -9,7 +9,7 @@ def home(request, slug=None):
     else:
         articles = Article.objects.filter(is_approved=True)  # Only show approved articles
     categories = Category.objects.all()
-    return render(request, 'newsletter/home.html', {'articles': articles, 'categories': categories})
+    return render(request, 'newsletter/index.html', {'articles': articles, 'categories': categories})
 
 def submit_article(request):
     if request.method == 'POST':
