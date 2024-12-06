@@ -8,12 +8,16 @@ def home(request):
 
 def submit_article(request):
     if request.method == 'POST':
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
             article = form.save(commit=False)
-            article.is_approved = False  
+            article.is_approved = False
+            if request.user.is_authenticated:
+                article.author = request.user
             article.save()
-            return redirect('home')  # Redirect to home after submission
+            return render(request, 'newsletter/success.html', {
+                'message': 'Your article has been submitted successfully and is pending approval.'
+            })
     else:
         form = ArticleForm()
     return render(request, 'newsletter/submit_article.html', {'form': form})
@@ -28,8 +32,10 @@ def approve_article(request, article_id):
     return redirect('admin_article_list')  # Redirect to admin list after approval
 
 def admin_article_list(request):
-    articles = Article.objects.filter(is_approved=False)  # List unapproved articles
-    return render(request, 'newsletter/admin_article_list.html', {'articles': articles})
+    if not request.user.is_staff:
+        return redirect('home')
+    articles = Article.objects.filter(is_approved=False).select_related('category', 'author')
+    return render(request, 'newsletter/admin_articles.html', {'articles': articles})
 
 def article_detail(request, article_id):
     article = get_object_or_404(Article, id=article_id)  # Retrieve the article by ID
