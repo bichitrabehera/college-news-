@@ -1,13 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit Article - AMC News</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header class="header">
         <div class="amc">
@@ -26,16 +30,10 @@
             <form id="newsubmit" method="post" action="{% url 'submit_article' %}">
                 {% csrf_token %}
                 <h2 class="title">Submit an Article</h2>
-                
+
                 <div class="form-group">
                     <label for="title">Article Title</label>
-                    <input 
-                        type="text" 
-                        name="title" 
-                        id="title" 
-                        required 
-                        placeholder="Enter article title"
-                    >
+                    <input type="text" name="title" id="title" required placeholder="Enter article title">
                 </div>
 
                 <div class="form-group">
@@ -43,20 +41,15 @@
                     <select name="category" id="category" required>
                         <option value="">Select a category</option>
                         {% for category in form.category.field.queryset %}
-                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        <option value="{{ category.id }}">{{ category.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea 
-                        name="content" 
-                        id="content" 
-                        required 
-                        rows="8"
-                        placeholder="Write your article content here..."
-                    ></textarea>
+                    <textarea name="content" id="content" required rows="8"
+                        placeholder="Write your article content here..."></textarea>
                 </div>
 
                 <p class="info-text">Note: Your article will be reviewed by an admin before being published.</p>
@@ -67,10 +60,15 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; Copyright 2024 . AMC Engineering College</p>
-            <p class="footer-credits">Made By Bharath, Matharishwa & Bichitra</p>
+        <div>
+            &copy Copyright - All Rights Reserved
+        </div>
+        <div class="links">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
         </div>
     </footer>
 </body>
+
 </html>

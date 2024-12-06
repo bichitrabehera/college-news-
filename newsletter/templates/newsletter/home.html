@@ -1,13 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMC Engineering College News</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header class="header">
         <div class="amc">
@@ -22,20 +26,12 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h2 class="hero-title">Welcome to AMC News Portal</h2>
-                <p class="hero-subtitle">Stay updated with the latest news and events from our campus</p>
-                <a href="submit" class="cta-button">Submit Your News</a> 
-            </div>
-        </section>
-
         <section class="news-grid">
             <div class="section-title">
                 <h2>Latest News</h2>
                 <div class="title-underline"></div>
             </div>
-            
+
             <div class="articles-container">
                 {% for article in articles %}
                 <article class="news-card">
@@ -46,7 +42,7 @@
                             <span class="news-date">{{ article.created_at|date:"F d, Y" }}</span>
                             <span class="news-category">{{ article.category }}</span>
                         </div>
-                        <a href="{% url 'article_detail' article.id %}" class="read-more">Read More</a> <!-- Updated Read More link -->
+                        <a href="{% url 'article_detail' article.id %}" class="read-more">Read More</a>
                     </div>
                 </article>
                 {% endfor %}
@@ -55,15 +51,15 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; Copyright 2024 . AMC Engineering College</p>
-            <p class="footer-credits">Made By Bharath, Matharishwa & Bichitra</p>
-            <div class="social-media">
-                <a href="#" class="social-icon">Facebook</a>
-                <a href="#" class="social-icon">Twitter</a>
-                <a href="#" class="social-icon">Instagram</a>
-            </div> 
+        <div>
+            &copy Copyright - All Rights Reserved
+        </div>
+        <div class="links">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
         </div>
     </footer>
 </body>
+
 </html>
