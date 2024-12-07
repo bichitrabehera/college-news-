@@ -351,6 +351,45 @@ select:focus {
     font-style: italic;
 }
 
+/* readmore */
+
+/* <h1>{{ article.title }}</h1>
+        <p>By: {{ article.author.username }}</p>
+        <p>Category: {{ article.category.name }}</p>
+        <p>{{ article.content|safe }}</p>
+        <p>Published on: {{ article.published_date }}</p>
+        <a href="{% url 'index' %}">Back to Home</a> */
+
+.artcont{
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.741);
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 2rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgb(215, 215, 215);
+}
+
+.artcont p{
+    padding: 15px;
+    font-size: 18px;
+}
+
+.artcont a{
+    text-decoration: none;
+    color: white;
+}
+
+.artcont button{
+    height: 50px;
+    width: auto;
+    background-color: #003459;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Submit News Form */
 .submitnews {
     max-width: 800px;

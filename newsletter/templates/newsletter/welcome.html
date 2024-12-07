@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Welcome To AMC News</title>
     <style>
         body {
             margin: 0;
@@ -12,44 +14,54 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #003459;
-            font-family: Arial, sans-serif;
+            background-color: #023052;
+            font-family: sans-serif;
             text-align: center;
         }
+
+        img {
+            height: 150px;
+
+        }
+
         .welcome {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: bold;
             color: #ffffff;
             animation: pop-in 2s forwards;
         }
-        @keyframes pop-in{
-            0%{
+
+        @keyframes pop-in {
+            0% {
                 opacity: 0;
                 transform: scale(0);
             }
-            50%{
+
+            50% {
                 opacity: 0.5;
                 transform: scale(1.2);
             }
-            100%{
+
+            100% {
                 opacity: 1;
                 transform: scale(1);
             }
         }
-        .hint {
-            margin-top: 1rem;
-            font-size: 1rem;
-            color: #777;
-        }
     </style>
 </head>
+
 <body>
-        <div class="welcome">Welcome to AMC News</div>
+
+    <div class="welcome">
+        <img src="{% static 'images/amc.png' %}" alt="Amc Logo">
+        Welcome to AMC News
+    </div>
 
     <script>
         setTimeout(() => {
-            window.location.href = "{% url 'index' %}"; 
+            window.location.href = "{% url 'index' %}";
         }, 3000);
     </script>
 </body>
+
 </html>
