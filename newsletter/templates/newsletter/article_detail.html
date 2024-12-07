@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Detail</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>By: {{ article.author.username }}</p>
+    <p>Category: {{ article.category.name }}</p>
+    <p>{{ article.content|safe }}</p>
+    <p>Published on: {{ article.published_date }}</p>
+    <a href="{% url 'index' %}">Back to Home</a>
+</body>
+</html>
