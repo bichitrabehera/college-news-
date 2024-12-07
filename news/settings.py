@@ -21,7 +21,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 import sys
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 sys.stdout.write(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}\n")
 
 # Application definition
