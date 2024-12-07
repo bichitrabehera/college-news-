@@ -17,6 +17,8 @@
         </div>
         <nav class="nav-container">
             <div class="nav-links">
+                <img class="logo" src="{% static 'images/amc.png' %}" alt="My Image">
+
                 <a href="{% url 'home' %}" class="nav-link">Home</a>
                 <a href="{% url 'submit_article' %}" class="nav-link">Submit News</a>
             </div>
@@ -37,9 +39,7 @@
     </main>
 
     <footer class="footer">
-        <div>
-            &copy Copyright - All Rights Reserved
-        </div>
+     
         <div class="links">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-twitter"></i>

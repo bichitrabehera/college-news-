@@ -4,6 +4,7 @@ import environ
 
 # Initialize environment variables
 env = environ.Env()
+
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -12,7 +13,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
@@ -20,7 +21,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 
 import sys
-ALLOWED_HOSTS = ['college-news.vercel.app', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 sys.stdout.write(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}\n")
 
 # Application definition
