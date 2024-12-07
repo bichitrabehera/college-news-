@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Category
 from .forms import ArticleForm  
 
+def welcome(request):
+    return render(request, 'newsletter/welcome.html')
+
 def home(request, slug=None):
     if slug:
         category = get_object_or_404(Category, slug=slug)
