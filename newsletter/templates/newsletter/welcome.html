@@ -20,6 +20,21 @@
             font-size: 4rem;
             font-weight: bold;
             color: #ffffff;
+            animation: pop-in 2s forwards;
+        }
+        @keyframes pop-in{
+            0%{
+                opacity: 0;
+                transform: scale(0);
+            }
+            50%{
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         .hint {
             margin-top: 1rem;
